@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:card_view="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<variable
+			name="detail"
+			type="com.pmmq.hg_assignment.data.entity.Detail" />
+		<variable
+			name="vmDetail"
+			type="com.pmmq.hg_assignment.ui.main.DetailItemViewModel" />
+		<variable
+			name="position"
+			type="Integer" />
+	</data>
+	<android.support.v7.widget.CardView
+		android:layout_margin="10dp"
+		card_view:cardBackgroundColor="@{position%2 == 0? @color/colorGray : @color/colorAccent}"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:clickable="true"
+			android:foreground="?android:attr/selectableItemBackgroundBorderless"
+			android:orientation="vertical"
+			android:padding="5dp">
+
+			<android.support.v7.widget.AppCompatTextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@{vmDetail.getDateWithFormat()}"
+				tools:text="date" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+				<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/tv_buy"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="0.5"
+					android:gravity="center"
+					android:text="@{vmDetail.getBuyWithFormat()}"
+					tools:text="buy : xxxxx" />
+
+				<android.support.v7.widget.AppCompatTextView
+					android:id="@+id/tv_sell"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="0.5"
+					android:gravity="center"
+					android:text="@{vmDetail.getSellWithFormat()}"
+					tools:text="sale : xxxxx" />
+			</LinearLayout>
+		</LinearLayout>
+	</android.support.v7.widget.CardView>
+</layout>
+
